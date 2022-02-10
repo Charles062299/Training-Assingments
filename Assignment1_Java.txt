@@ -1,0 +1,131 @@
+John Charles Vincent Casanoba
+Java Assignment
+
+Q.1 Accept a numeric array datafor 5 numbersandfind the largest number.
+Answer:
+
+package mycorejavaproject;
+import java.util.Scanner;
+public class Q1{
+
+     public static void main(String[] args){
+   	int n, max;
+        Scanner s = new Scanner(System.in);
+   	System.out.print("Enter the number of elements in the array:");
+	n = s.nextInt();
+	int a[] = new int[n];
+	System.out.println("Enter the elements of array:");
+	for(int i = 0; i < n; i++){
+	a[i] = s.nextInt();}
+	max = a[0];
+	for(int i = 0; i < n; i++){
+	if(max < a[i]){
+	max = a[i];}}
+     System.out.println("Maximum value in the array is:"+max);
+  }
+}
+
+Q.2 create methods to find the cube and square of a given number.
+Answer:
+
+package mycorejavaproject;
+import java.util.*;
+public class Q2 {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int num;
+
+        System.out.print("Enter an integer number: ");
+        num = sc.nextInt();
+
+        System.out.println("Square of " + num + " is: " + Math.pow(num, 2));
+        System.out.println("Cube of " + num + " is: " + Math.pow(num, 3));
+        System.out.println("Square Root of " + num + " is: " + Math.sqrt(num));
+    }
+}
+
+
+Q.3 Create a method to swap two numbers."swap means interchange"
+Answer:
+
+package mycorejavaproject;
+import java.util.Scanner;
+public class Q3 {
+ public static void main(String[] args) {
+   int x, y, z;
+   Scanner in = new Scanner(System.in);
+
+   System.out.println("Input the first number: ");
+   x = in.nextInt();
+   System.out.println("Input the second number: ");
+   y = in.nextInt();
+
+   z = x;
+   x = y;
+   y = z;
+
+   System.out.println(" Swapped values are:" + x + " and " + y);
+  }
+}
+
+Q.4 write the switch case construct perform the calculations. "swap(12,13)" and "output: x=13 , y=12"
+
+Answer:
+
+package mycorejavaproject;
+import java.util.Scanner;
+public class Q4 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+ 
+        while (true) {
+        	
+            System.out.print("Enter 1st number:");
+            int num1 = sc.nextInt();
+            System.out.print("Enter 2nd number:");
+            int num2 = sc.nextInt();
+            System.out.println("Output: x = " + num1 + " y = " + num2);
+           
+            System.out.print("What operation? (Press x if EXIT)");
+            char operation = sc.next().charAt(0);
+            
+            switch (operation) {
+
+            case '+':
+                System.out.println("Add two numbers;");
+                int sum = num1 + num2;
+                System.out.println("the sum of two number: "+ sum);
+                break;
+                
+            case '-':
+                System.out.println("Subtract two numbers;");
+                int diff = num1 - num2;
+                System.out.println("the difference of two number: "+ diff);
+                break;
+                
+            case '*':
+                System.out.println("Multiply two numbers;");
+                int product = num1 * num2;
+                System.out.println("the product of two number: "+ product);
+                break;
+                
+            case '/':
+                System.out.println("Divide two numbers;");
+                int quotient = num1 / num2;
+                System.out.println("the quotient of two number: "+ quotient);
+                break;
+                
+            case 'x':
+                System.out.println("EXIT");
+                System.exit(0);
+                
+            default:
+                System.out.println("invalid Input");
+
+            }
+        }
+    }
+}
