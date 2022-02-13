@@ -1,0 +1,172 @@
+React Assignment:1
+1.	Install NodeJs, Visual studio code
+Answer:Done
+
+2.	create a Welcome component  to greet the user using a javascript function,
+with a property called as name. Apply some css styling.Use the component in App  component.
+Answer:
+
+-App.js
+
+import logo from './logo.svg';
+import './App.css';
+import Welcome from './Welcome';
+import Addition from './Addition';
+import Card from './Card';
+
+function App() {
+  return (
+    <div>
+        <Welcome name= "Charles" />
+        <Addition/>
+        <Card firstName='Charles' lastName = 'Casanoba'  age= '19'/>
+    </div>
+  );
+}
+
+export default App;
+
+--Welcome.js
+import React, { Component } from 'react';   
+import './Welcome.css';
+  
+export default class Welcome extends Component {  
+constructor(props){
+    super(props);
+}
+  render() {  
+    return (  
+      <div>  
+           <h1 style={{color: "White"}} className="hello"> <center>Hello {this.props.name}!</center></h1> 
+      </div>  
+    );  
+  }  
+} 
+
+--Welcome.css
+
+.hello{
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(Welcome.jpeg.jpg);
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    height: 20vh;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+3.	Create a Component to add two numbers.
+Answer:
+
+--Addition.js
+
+import React from 'react'
+import './Addition.css';
+
+export default class Sum extends React.Component {
+
+ 
+  constructor(props){
+    super(props)
+    this.state = { num1: '', num2: '', total: '' }
+  }
+
+
+  exe1(){
+    console.log("Num1: ", this.state.num1, " - Num2: ", this.state.num2)
+    this.setState({ total: parseInt(this.state.num1) + parseInt(this.state.num2) })
+    console.log(this.state)
+  }
+
+  render() {
+    return(
+      <div className="mainContainer">
+        <h1 style={{color: "white"}}>Add Two Numbers</h1>
+        
+
+        <input type="text" className="inputStyle" value={this.state.num1} onChange={ (eve) => { this.setState({ num1: eve.target.value }) } }/>
+        <br/><br/>
+
+        <input type="text" className="inputStyle" value={this.state.num2} onChange={ (eve) => { this.setState({ num2: eve.target.value })} } />
+        <br/><br/>
+
+        <button className="button" onClick={()=>{this.exe1() }} >Add Numbers</button>
+        <br/><br/>
+
+        <input type="text" className="outStyle" value={this.state.total} />
+
+        <br/><br/>
+      </div>
+    )
+  }
+}
+
+--Addition.css
+
+.mainContainer{
+    
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(Addition.jpeg.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 50vh;
+  }
+
+  .inputStyle{
+    text-align: center;
+    height: 1cm;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .outStyle{
+    text-align: center;
+    height: 1cm;
+    background-color: rgba(255, 255, 255, 0.83);
+  }
+
+  .button{
+      text-align: center;
+      height: 1cm;
+      background-color: rgb(26, 156, 196);
+      transition: .2s ease;
+  }
+  .button:hover{
+      color: rgb(255, 255, 255);
+  }
+  
+
+4.	Modify the card component to add a props age and perform the validation,to check it’s a number.
+Answer:
+
+--Card.js
+
+import { Component } from "react/cjs/react.development";
+import PropTypes from 'prop-types';
+import './Card.css';
+export default class Card extends Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        return(
+            <div>
+            
+                <h1> <center> Hi I'm { this.props.firstName + ' ' + this.props.lastName } and I'm { this.props.age } years old.</center> </h1>
+            </div>
+        );
+    }
+}  
+  Card.propTypes = {
+        firstName: PropTypes.string.isRequired,
+        age : PropTypes.number
+    }
+
+5.	What is Virtual DOM in ReactJS
+
+Answer:
+
+A virtual DOM (VDOM) is a programming concept in which a library like ReactDOM keeps a "virtual" representation of a user interface in memory
+and syncs it with the "real" DOM.
